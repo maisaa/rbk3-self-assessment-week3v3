@@ -7,8 +7,11 @@ var Fish = Backbone.Model.extend({
     image: 'http://www.google.com',
     description: 'Regular old fish',
     displayInfo: false
-  }
-  toggleDescription(){
+  },
+  toggleDescription: function(){
+
+    this.set("description",!this.get("displayInfo"));
+    this.trigger("toggle:description",this);
   	//in side this function i would check if the events for this fish is clicked
   	// then i will change the state of toggle on or off
   	// so i need to add new variable with name toggle (bollen) 
